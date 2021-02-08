@@ -1,0 +1,12 @@
+{
+  "PS_101": {
+    "code": "PS_101",
+    "severity": "FATAL",
+    "message": "Invalid Person Id."
+  },
+  "PS_201": {
+    "code": "PS_201",
+    "severity": "FATAL",
+    "message": "Invalid Input."
+  }
+}

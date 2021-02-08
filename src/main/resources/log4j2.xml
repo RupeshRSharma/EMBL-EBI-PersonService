@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p ${hostName} $${spring:spring.application.name} --- [%t] %C{1.} : %m%n%ex
+        </Property>
+    </Properties>
+    <Appenders>
+        <File name="info_logfile" fileName="build/info.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="warn_logfile" fileName="build/warn.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="debug_logfile" fileName="build/debug.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="error_logfile" fileName="build/error.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="audit_logfile" fileName="build/audit.log">
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+        </File>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="info_logfile" level="INFO"/>
+            <AppenderRef ref="error_logfile" level="ERROR"/>
+            <AppenderRef ref="debug_logfile" level="DEBUG"/>
+            <AppenderRef ref="warn_logfile" level="WARN"/>
+            <AppenderRef ref="console"/>
+        </Root>
+        <Logger name="AuditLog" additivity="false">
+            <AppenderRef ref="audit_logfile" level="INFO"/>
+        </Logger>
+    </Loggers>
+</Configuration>
