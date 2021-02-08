@@ -35,6 +35,8 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>
  * 4. /1.0/persons/{personId}:DELETE - Delete a Person from database with given id.
  * </p>
+ * 5. /1.0/persons:GET - Get list of Persons from database.
+ * </p>
  */
 @RestController
 @RequestMapping(EndpointConstants.BASE_V1_API + EndpointConstants.PERSONS)
@@ -107,7 +109,7 @@ public class PersonController {
 	}
 
 	/**
-	 * Get details of a Person from database with given id.
+	 * Get list of Persons from database.
 	 *
 	 * @return Response with Http status 200 and Person list
 	 * @throws PersonException Any exception
